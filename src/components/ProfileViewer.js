@@ -23,16 +23,13 @@ const ProfileViewer = ({ onLogout }) => {
   const { session } = useSession();
   const { webId } = session.info;
 
-  useEffect(() => {
-    console.log("test")
-  });
 
   console.log(session.info.isLoggedIn)
   if (!session.info.isLoggedIn)
-  { 
+{ 
       onLogout()
   }
-  
+
   return (
     <Container fixed>
       <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
@@ -56,9 +53,9 @@ const ProfileViewer = ({ onLogout }) => {
         </Card>
       </CombinedDataProvider>
       <LogoutButton>
-    <Button variant="contained" color="primary">
-      Log&nbsp;out
-    </Button>
+        <Button variant="contained" color="primary">
+          Log&nbsp;out
+        </Button>
   </LogoutButton>
     </Container>
    
