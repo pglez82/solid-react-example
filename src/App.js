@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import { SessionProvider} from "@inrupt/solid-ui-react";
+import { useState} from "react";
+import LoginForm from "./components/LoginForm"
+import ProfileViewer from "./components/ProfileViewer"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const onLogin = () => {
+    setIsLoggedIn(true)
+  }
+
+  const onLogout = () => {
+    console.log("Calling on logout")
+    setIsLoggedIn(false)
+  }
+  
+  return(
+    <SessionProvider sessionId="log-in-example">
+      {(!isLoggedIn) ? <LoginForm onLogin={onLogin} /> : <ProfileViewer onLogout={onLogout}/>}
+    </SessionProvider>
+  )
 }
 
 export default App;
