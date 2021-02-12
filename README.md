@@ -1,5 +1,10 @@
 # solid-react-example
-This is a sample react application that uses solid components
+This is a sample react application that uses solid components.
+
+Documentation links:
+- [React components for Solid](https://github.com/inrupt/solid-ui-react)
+- [Classes for handling the authentication](https://docs.inrupt.com/developer-tools/api/javascript/solid-client-authn-browser/)
+- [Main documentation site](https://docs.inrupt.com/)
 
 ## How to
 First, create a React application with `npx create-react-app solid-react-example`. This command will create a react sample application in the directory solid-react-example.
