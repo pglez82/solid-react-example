@@ -5,11 +5,13 @@ import { FOAF, VCARD } from "@inrupt/lit-generated-vocab-common";
 
 const ProfileViewer = () => {
   const { session } = useSession();
-  const { webId } = session.info;
 
   return (
     <Container fixed>
-      <CombinedDataProvider datasetUrl={webId} thingUrl={webId}>
+      {session.info.webId ? (
+        <CombinedDataProvider 
+          datasetUrl={session.info.webId} 
+          thingUrl={session.info.webId}>
         <Card style={{ maxWidth: 480 }}>
           <CardContent>
             <Typography gutterBottom variant="h5" component="h2">
@@ -25,11 +27,14 @@ const ProfileViewer = () => {
           </CardActionArea>
         </Card>
       </CombinedDataProvider>
+      ): null }
       <LogoutButton >
         <Button style={{ marginTop: 20 }} variant="contained" color="primary">
           Logout
         </Button>
       </LogoutButton>
+
+
     </Container>
   );
 }

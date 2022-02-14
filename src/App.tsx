@@ -1,9 +1,8 @@
 import './App.css';
-import { SessionProvider} from "@inrupt/solid-ui-react";
+import { SessionProvider, useSession } from "@inrupt/solid-ui-react";
 import { useState} from "react";
 import LoginForm from "./components/LoginForm"
 import ProfileViewer from "./components/ProfileViewer"
-import { useSession } from "@inrupt/solid-ui-react/dist";
 
 const App = () => {
   //We use this state variable
