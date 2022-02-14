@@ -1,12 +1,29 @@
-# Solid React basic example
+# Solid React basic example with TypeScript
+
 This is a sample react application that uses solid components.
 
 Documentation links:
-- [React components for Solid](https://github.com/inrupt/solid-ui-react)
+- [Solid UI-react documentation](https://solid-ui-react.docs.inrupt.com/)
+- [Source code](https://github.com/inrupt/solid-ui-react)
 - [Classes for handling the authentication](https://docs.inrupt.com/developer-tools/api/javascript/solid-client-authn-browser/)
 - [Main documentation site](https://docs.inrupt.com/)
 
-## How to
+## Using the repository
+
+Install dependencies
+
+```bash
+npm install
+```
+
+Run the code:
+
+```
+npm start
+```
+
+## Creating a SOLID app from scratch
+
 First, create a React application with `npx create-react-app solid-react-example`. This command will create a react sample application in the directory solid-react-example.
 
 Lets add a dependecy to this project. We want to use [solid components](https://github.com/inrupt/solid-ui-react), lets use npm to add the required dependencies:
