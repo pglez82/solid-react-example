@@ -16,7 +16,7 @@ const ProfileViewer = () => {
               <Text property={FOAF.name.iri.value} />
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p" style={{ display: "flex", alignItems: "center" }}>
-              <Text property={VCARD.organization_name.iri.value} />
+              <Text property={VCARD.role.iri.value} />
             </Typography>
           </CardContent>
 

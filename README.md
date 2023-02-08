@@ -1,6 +1,14 @@
 # Solid React basic example
 This is a sample react application that uses solid components.
 
+## Quick start
+```bash
+npm install --legacy-peer-deps
+npm start
+```
+
+## More information
+
 Documentation links:
 - [React components for Solid](https://github.com/inrupt/solid-ui-react)
 - [Classes for handling the authentication](https://docs.inrupt.com/developer-tools/api/javascript/solid-client-authn-browser/)
@@ -9,29 +17,29 @@ Documentation links:
 ## How to
 First, create a React application with `npx create-react-app solid-react-example`. This command will create a react sample application in the directory solid-react-example.
 
-Lets add a dependecy to this project. We want to use [solid components](https://github.com/inrupt/solid-ui-react), lets use npm to add the required dependencies:
+Let's add a dependency to this project. We want to use [solid components](https://github.com/inrupt/solid-ui-react), let's use npm to add the required dependencies:
 
 ```bash
 cd solid-react-example
 npm install @inrupt/solid-ui-react
 ```
 
-in the file `package.json` you can see now that the line `"@inrupt/solid-ui-react": "^2.1.1"` has been added. This file is critical to install the dependencies in another computer (using `npm install`).
+in the file `package.json` you can see now that the line `"@inrupt/solid-ui-react": "^2.8.2"` has been added. This file is critical to install the dependencies in another computer (using `npm install`).
 
-Lets install also two other dependencies that are needed for this project:
+Let's install also two other dependencies that are needed for this project:
 
 ```bash
 npm install @inrupt/lit-generated-vocab-common
-npm install @material-ui/core
+npm install @material-ui/core --legacy-peer-deps
 ```
 
-Now lets modify the code so we can use this components to make a basic login page against a solid server and then show some basic information extracted from the POD.
+Now let's modify the code so we can use these components to make a basic login page against a solid server and then show some basic information extracted from the POD.
 
 
 ### The main application component
 This component application will have two subcomponents, depending if we are logged in or not. If we are not logged in, we will show the `LoginForm` component. If we are already logged in, we will show some information from the user pod, using the `ProfileViewer` component.
 
-Note that we have two listener to know when the login changes. We use these listener to handle the `isLoggedIn` state variable. React will handle the rest, changing the virtual dom depending on the value of this variable.
+Note that we have two listeners to know when the login changes. We use these listeners to handle the `isLoggedIn` state variable. React will handle the rest, changing the virtual dom depending on the value of this variable.
 
 ```javascript
 const App = () => {
@@ -60,7 +68,7 @@ const App = () => {
 ```
 
 ### How to login
-For logging in, we have a `LoginButton` component. Login in solid is carried out by another site (the pod provider), so we must handle the redirect when comming back from the login process.
+For logging in, we have a `LoginButton` component. Login in solid is carried out by another site (the pod provider), so we must handle the redirect when coming back from the login process.
 
 ```javascript
 const LoginForm = () => {
@@ -99,7 +107,7 @@ const LoginForm = () => {
 Note the `useEffect` hook. It allows us to execute some code when the component is mounted. Using `setCurrentUrl` as a parameter means that this function will only get executed when this value changes. 
 
 ### Showing some profile information
-Once we are logged in, we can proceed to show some profile information. In this little example we are showing the user name, the organization to which the user belongs and its picture. For that, we use the solid react components that allow us to easily show this information without having to use the internal language used for this queries.
+Once we are logged in, we can proceed to show some profile information. In this little example we are showing the user name, the organization to which the user belongs and its picture. For that, we use the solid react components that allow us to easily show this information without having to use the internal language used for these queries.
 
 ```javascript
 const ProfileViewer = () => {
@@ -115,7 +123,7 @@ const ProfileViewer = () => {
               <Text property={FOAF.name.iri.value} />
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p" style={{ display: "flex", alignItems: "center" }}>
-              <Text property={VCARD.organization_name.iri.value} />
+              <Text property={VCARD.role.iri.value} />
             </Typography>
           </CardContent>
 
@@ -132,4 +140,6 @@ const ProfileViewer = () => {
     </Container>
   );
 }
+
+export default ProfileViewer
 ```
